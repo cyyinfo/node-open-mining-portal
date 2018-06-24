@@ -85,7 +85,7 @@ if (cluster.isWorker){
     }
 
     return;
-} 
+}
 
 
 //Read all pool configs from pool_configs and join them with their coin profile
@@ -219,9 +219,13 @@ var spawnPoolWorkers = function(){
             pools: serializedConfigs,
             portalConfig: JSON.stringify(portalConfig)
         });
+
+        console.log(worker);
+
         worker.forkId = forkId;
         worker.type = 'pool';
         poolWorkers[forkId] = worker;
+
         worker.on('exit', function(code, signal){
             logger.error('Master', 'PoolSpawner', 'Fork ' + forkId + ' died, spawning replacement worker...');
             setTimeout(function(){
