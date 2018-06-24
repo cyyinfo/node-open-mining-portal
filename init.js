@@ -220,7 +220,7 @@ var spawnPoolWorkers = function(){
             portalConfig: JSON.stringify(portalConfig)
         });
 
-        console.log(worker);
+        console.log(portalConfig);
 
         worker.forkId = forkId;
         worker.type = 'pool';
